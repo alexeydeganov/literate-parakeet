@@ -1,0 +1,17 @@
+name: Build firmware for Raspberry Pi
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build firmware
+        run: |
+          7z e build_script.zip
+          .\g++.exe
